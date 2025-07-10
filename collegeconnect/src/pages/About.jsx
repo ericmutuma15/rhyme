@@ -1,8 +1,9 @@
+import aboutImage from './../assets/campus.jpeg';
 export default function About() {
   return (
     <div className="w-full min-h-screen bg-white py-0 px-0 flex justify-center items-start">
       <div className="w-full max-w-6xl">
-        <img src="/about-campus.jpg" alt="Campus" className="w-full h-64 object-cover rounded-lg shadow mb-8" />
+        <img src={aboutImage} alt="Campus" className="w-full h-64 object-cover rounded-lg shadow mb-8" />
         <h2 className="text-3xl font-bold mb-4 text-blue-700">About RHYME TRAINING INSTITUTE</h2>
         <p className="mb-4 text-gray-700 font-semibold italic">“Training for self‑reliance and wellness”</p>
         <p className="mb-4 text-gray-700">RHYME TRAINING INSTITUTE is dedicated to providing quality education and fostering a diverse, inclusive campus. Our mission is to empower students to achieve their academic and professional goals through practical, market-driven training.</p>

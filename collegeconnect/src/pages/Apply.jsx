@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import applyImage from './../assets/apply0.jpg'; 
 
 const courses = [
   "Community Health & HIV/AIDS Management",
@@ -134,7 +135,7 @@ export default function Apply() {
         <button type="submit" className="w-full py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition">Submit Application</button>
       </form>
       <div className="hidden md:block ml-12">
-        <img src="/apply-hero.jpg" alt="Apply" className="w-96 h-96 object-cover rounded-lg shadow-lg" />
+        <img src={applyImage} alt="Apply" className="w-96 h-96 object-cover rounded-lg shadow-lg" />
       </div>
     </div>
   );
