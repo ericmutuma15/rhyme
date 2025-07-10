@@ -15,7 +15,7 @@ export default function App() {
     <div className="w-full min-h-screen bg-white">
       <Router>
         <nav className="flex items-center justify-between px-4 md:px-8 py-4 bg-blue-700 text-white w-full relative">
-          <Link to="/home" className="flex items-center gap-2 group">
+          <Link to="/" className="flex items-center gap-2 group">
             <img src={LOGO} alt="Rhyme Logo" className="w-8 h-8 rounded-full border-2 border-white shadow group-hover:scale-110 transition-transform" />
             <span className="font-bold text-xl tracking-wide">Rhyme TTI</span>
           </Link>
