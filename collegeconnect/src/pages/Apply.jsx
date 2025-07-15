@@ -20,7 +20,7 @@ export default function Apply() {
 
   useEffect(() => {
     // Fetch courses from backend
-    fetch('/api/courses')
+    fetch('https://rhyme-xn72.onrender.com/api/courses', { headers: { 'Accept': 'application/json' } })
       .then(res => res.json())
       .then(data => {
         setCourses(data);
@@ -68,7 +68,7 @@ export default function Apply() {
       }
     });
     try {
-      const res = await fetch("/api/applications", {
+      const res = await fetch("https://rhyme-xn72.onrender.com/api/applications", {
         method: "POST",
         body: data,
       });
@@ -104,7 +104,15 @@ export default function Apply() {
         </div>
         <div className="mb-4">
           <label className="block mb-1 font-medium">Education</label>
-          <input name="education" required className="w-full border rounded px-3 py-2" value={form.education} onChange={handleChange} />
+          <select name="education" required className="w-full border rounded px-3 py-2" value={form.education} onChange={handleChange}>
+            <option value="">-- Select education level --</option>
+            <option value="None">None</option>
+            <option value="KCPE">KCPE</option>
+            <option value="KCSE/CSE">KCSE/CSE</option>
+            <option value="Diploma">Diploma</option>
+            <option value="Degree">Degree</option>
+            <option value="Post Graduate">Post Graduate</option>
+          </select>
         </div>
         <div className="mb-4">
           <label className="block mb-1 font-medium">Select Course</label>
