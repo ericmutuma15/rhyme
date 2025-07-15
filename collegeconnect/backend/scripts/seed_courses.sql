@@ -1,3 +1,5 @@
+ALTER TABLE courses ADD CONSTRAINT unique_title UNIQUE (title);
+
 INSERT INTO courses (title, description, duration, requirements) VALUES
 ('Community Health & HIV/AIDS Management', 'Comprehensive training in community health and HIV/AIDS management for aspiring health workers.', '1 year', ARRAY['KCSE Certificate', 'Interest in health sciences']),
 ('Nutrition & Dietetics', 'Learn the science of nutrition and diet planning for wellness and disease prevention.', '1 year', ARRAY['KCSE Certificate', 'Interest in nutrition']),
@@ -14,4 +16,14 @@ INSERT INTO courses (title, description, duration, requirements) VALUES
 ('Computer Packages', 'Short course in essential computer packages for all careers.', '3 months', ARRAY['KCSE Certificate']),
 ('Home Management & Basic Caregiving', 'Skills for home management and caregiving for families and communities.', '3 months', ARRAY['KCSE Certificate']),
 ('Basic Literacy, Theology & Biblical Studies', 'Foundational literacy and biblical studies for all ages.', '3 months', ARRAY['Open to all']),
-('Kenyan Sign Language', 'Learn Kenyan Sign Language for communication and inclusion.', '3 months', ARRAY['Open to all']);
+('Kenyan Sign Language', 'Learn Kenyan Sign Language for communication and inclusion.', '3 months', ARRAY['Open to all'])
+ON CONFLICT (title) DO NOTHING;
+
+-- New Courses Now Offered
+INSERT INTO courses (title, description, duration, requirements)
+VALUES
+('Diploma in Dental Nursing', 'Tailored for practicing or qualified nurses seeking to specialize in dental care.', '2 years', ARRAY['KCSE Certificate', 'Interest in dental care']),
+('Certificate in Chairside Dental Assisting', 'Equips learners with practical skills to assist dental professionals effectively.', '1 year', ARRAY['KCSE Certificate', 'Interest in dental care']),
+('Certificate in Ultrasound Technology', 'Hands-on course ideal for those interested in diagnostic imaging using ultrasound.', '1 year', ARRAY['KCSE Certificate', 'Interest in health sciences']),
+('Certificate in Emergency X-ray Technology', 'Trains professionals in conducting X-ray imaging in emergency and clinical settings.', '1 year', ARRAY['KCSE Certificate', 'Interest in health sciences'])
+ON CONFLICT (title) DO NOTHING;

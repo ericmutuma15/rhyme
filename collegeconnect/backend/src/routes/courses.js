@@ -5,10 +5,11 @@ const router = express.Router();
 // GET /api/courses - List all courses
 router.get('/', async (req, res) => {
   try {
-    const { rows } = await db.query('SELECT * FROM courses');
+    const { rows } = await db.query('SELECT id, title FROM courses');
     res.json(rows);
   } catch (err) {
-    res.status(500).json({ error: 'Failed to fetch courses' });
+    console.error('GET /api/courses error:', err);
+    res.status(500).json({ error: 'Database error' });
   }
 });
 

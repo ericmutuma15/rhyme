@@ -1,33 +1,17 @@
 import { useState, useEffect } from "react";
-import applyImage from './../assets/apply0.jpg'; 
+import applyImage from './../assets/apply0.jpg';
 
-const courses = [
-  "Community Health & HIV/AIDS Management",
-  "Nutrition & Dietetics",
-  "Community Health & Development",
-  "Dental Assistant Technology",
-  "Business Management",
-  "Computer Applications",
-  "Water Technology & Plumbing",
-  "First Aid, Home-Based Care & Drug Addiction Intervention",
-  "Food & Beverage",
-  "Environment, Climate Change & Health",
-  "Bible Studies & Theology",
-  "Certificate in HIV & HIV Counselling & Testing",
-  "Computer Packages",
-  "Home Management & Basic Caregiving",
-  "Basic Literacy, Theology & Biblical Studies",
-  "Kenyan Sign Language"
-];
+// ...existing code...
 
 export default function Apply() {
+  const [courses, setCourses] = useState([]);
   const [form, setForm] = useState({
     firstName: "",
     lastName: "",
     email: "",
     phone: "",
     education: "",
-    course: "",
+    courseId: "",
     kcse: null,
     others: [],
   });
@@ -35,12 +19,20 @@ export default function Apply() {
   const [error, setError] = useState("");
 
   useEffect(() => {
-    const params = new URLSearchParams(window.location.search);
-    const courseParam = params.get("course");
-    if (courseParam) {
-      const courseName = courses[parseInt(courseParam, 10) - 1];
-      if (courseName) setForm((prev) => ({ ...prev, course: courseName }));
-    }
+    // Fetch courses from backend
+    fetch('/api/courses')
+      .then(res => res.json())
+      .then(data => {
+        setCourses(data);
+        // Auto-select course from query param if present
+        const params = new URLSearchParams(window.location.search);
+        const courseParam = params.get("course");
+        if (courseParam) {
+          const course = data.find(c => c.id === parseInt(courseParam, 10));
+          if (course) setForm((prev) => ({ ...prev, courseId: course.id }));
+        }
+      })
+      .catch(() => setCourses([]));
   }, []);
 
   const handleChange = (e) => {
@@ -116,10 +108,10 @@ export default function Apply() {
         </div>
         <div className="mb-4">
           <label className="block mb-1 font-medium">Select Course</label>
-          <select name="course" required className="w-full border rounded px-3 py-2" value={form.course} onChange={handleChange}>
+          <select name="courseId" required className="w-full border rounded px-3 py-2" value={form.courseId} onChange={handleChange}>
             <option value="">-- Select a course --</option>
-            {courses.map((c, i) => (
-              <option key={i} value={c}>{c}</option>
+            {Array.isArray(courses) && courses.map((c) => (
+              <option key={c.id} value={c.id}>{c.title}</option>
             ))}
           </select>
         </div>
