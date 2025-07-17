@@ -272,12 +272,14 @@ export default function Courses() {
 									))}
 								</ul>
 							</div>
-							<a
-								href={`/apply?course=${selected.id}`}
-								className="block w-full text-center py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition font-semibold"
-							>
-								Apply for this Course
-							</a>
+<button
+  className="block w-full text-center py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition font-semibold"
+  onClick={() => {
+	window.location.href = `/apply?course=${selected.id}`;
+  }}
+>
+  Apply for this Course
+</button>
 						</div>
 					</div>
 				)}
