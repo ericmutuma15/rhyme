@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { API_BASE } from "../utils/api";
 
 export default function AdminDashboard() {
   const [apps, setApps] = useState([]);
@@ -7,7 +8,7 @@ export default function AdminDashboard() {
 
   useEffect(() => {
     if (!token) return;
-    fetch("/api/applications", {
+    fetch(`${API_BASE}/applications`, {
       headers: { Authorization: `Bearer ${token}` },
     })
       .then((res) => res.json())
@@ -19,7 +20,7 @@ export default function AdminDashboard() {
     e.preventDefault();
     setError("");
     const form = e.target;
-    const res = await fetch("/api/auth/login", {
+    const res = await fetch(`${API_BASE}/auth/login`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
