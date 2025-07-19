@@ -24,43 +24,69 @@ import emergencyXrayImg from './../assets/dxr.jpeg';
 import { useState } from "react";
 
 const groupedCourses = [
-	{
-		category: "New Courses Now Offered",
-		courses: [
-			{
-				id: 100,
-				title: "Diploma in Dental Nursing",
-				description:
-					"Tailored for practicing or qualified nurses seeking to specialize in dental care.",
-				requirements: ["KCSE Certificate", "Interest in dental care"],
-				image: diplomaDentalImg,
-			},
-			{
-				id: 101,
-				title: "Certificate in Chairside Dental Assisting",
-				description:
-					"Equips learners with practical skills to assist dental professionals effectively.",
-				requirements: ["KCSE Certificate", "Interest in dental care"],
-				image: chairsideDentalImg,
-			},
-			{
-				id: 102,
-				title: "Certificate in Ultrasound Technology",
-				description:
-					"Hands-on course ideal for those interested in diagnostic imaging using ultrasound.",
-				requirements: ["KCSE Certificate", "Interest in health sciences"],
-				image: ultrasoundImg,
-			},
-			{
-				id: 103,
-				title: "Certificate in Emergency X-ray Technology",
-				description:
-					"Trains professionals in conducting X-ray imaging in emergency and clinical settings.",
-				requirements: ["KCSE Certificate", "Interest in health sciences"],
-				image: emergencyXrayImg,
-			},
-		],
-	},
+   {
+	   category: "New Courses Now Offered",
+	   courses: [
+		   {
+			   id: 100,
+			   title: "Diploma in Dental Nursing",
+			   description:
+				   "Tailored for practicing or qualified nurses seeking to specialize in dental care.",
+			   requirements: [
+				   "KCSE and above",
+				   "Healthcare professionals interested in upgrading to dental care",
+				   "Interest in dental care"
+			   ],
+			   image: diplomaDentalImg,
+		   },
+		   {
+			   id: 101,
+			   title: "Certificate in Chairside Dental Assisting",
+			   description:
+				   "Equips learners with practical skills to assist dental professionals effectively.",
+			   requirements: [
+				   "Open to all",
+				   "Certificate in certified nurse assistant course"
+			   ],
+			   image: chairsideDentalImg,
+		   },
+		   {
+			   id: 102,
+			   title: "Certificate in Ultrasound Technology",
+			   description:
+				   "Hands-on course ideal for those interested in diagnostic imaging using ultrasound.",
+			   requirements: ["KCSE Certificate", "Interest in health sciences"],
+			   image: ultrasoundImg,
+		   },
+		   {
+			   id: 103,
+			   title: "Certificate in Emergency X-ray Technology",
+			   description:
+				   "Trains professionals in conducting X-ray imaging in emergency and clinical settings.",
+			   requirements: ["KCSE Certificate", "Interest in health sciences"],
+			   image: emergencyXrayImg,
+		   },
+		   {
+			   id: 200,
+			   title: "Diploma in Community Dental Hygienist",
+			   description: "Comprehensive diploma program for training as a community dental hygienist.",
+			   requirements: [
+				   "KCSE Certificate",
+				   "Interest in dental hygiene",
+				   "Any qualification in community health course",
+				   "Certified nurse assistant course"
+			   ],
+			   image: undefined,
+		   },
+		   {
+			   id: 210,
+			   title: "Certificate in Community Dental Hygienist",
+			   description: "Certificate program for entry-level community dental hygienist skills.",
+			   requirements: ["KCSE Certificate", "Interest in dental hygiene"],
+			   image: undefined,
+		   },
+	   ],
+   },
 	{
 		category: "Health, Vocational & Development Courses",
 		courses: [
@@ -88,14 +114,18 @@ const groupedCourses = [
 				requirements: ["KCSE Certificate", "Passion for community work"],
 				image: communityImg,
 			},
-			{
-				id: 4,
-				title: "Dental Assistant Technology",
-				description:
-					"Hands-on training for dental clinic support roles and patient care.",
-				requirements: ["KCSE Certificate", "Interest in dental care"],
-				image: dentalImg,
-			},
+		   {
+			   id: 4,
+			   title: "Dental Assistant Technology",
+			   description:
+				   "Hands-on training for dental clinic support roles and patient care.",
+			   requirements: [
+				   "KCSE Certificate",
+				   "Interest in dental care",
+				   "Any certificate in healthcare profession"
+			   ],
+			   image: dentalImg,
+		   },
 			{
 				id: 5,
 				title: "Business Management",
