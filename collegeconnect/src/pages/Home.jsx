@@ -46,8 +46,12 @@ export default function Home() {
           </div>
         </div>
       </div>
-      {/* Centered Explore Courses Button */}
-      <div className="flex justify-center mt-4">
+
+      {/* Admission Ongoing Area */}
+      <div className="flex flex-col items-center mt-4">
+        <a href="/apply" className="px-8 py-3 bg-green-600 text-white rounded-lg font-bold text-lg shadow hover:bg-green-700 transition mb-2 animate-pulse">
+          Admission Ongoing: Apply Now
+        </a>
         <a href="/courses" className="px-8 py-3 bg-blue-700 text-white rounded-lg font-bold text-lg shadow hover:bg-blue-800 transition mb-2">Explore Our Courses</a>
       </div>
 

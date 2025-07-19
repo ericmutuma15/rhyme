@@ -1,3 +1,14 @@
+-- Ensure email is unique in applicants table
+DO $$
+BEGIN
+    IF NOT EXISTS (
+        SELECT 1 FROM information_schema.table_constraints
+        WHERE constraint_name = 'unique_email'
+            AND table_name = 'applicants'
+    ) THEN
+        ALTER TABLE applicants ADD CONSTRAINT unique_email UNIQUE (email);
+    END IF;
+END$$;
 DO $$
 BEGIN
     IF NOT EXISTS (
@@ -34,7 +45,9 @@ ON CONFLICT (title) DO NOTHING;
 
 INSERT INTO courses (id, title, description, duration, requirements)
 VALUES
-('10000000-0000-0000-0000-000000000000', 'Diploma in Dental Nursing', 'Tailored for practicing or qualified nurses seeking to specialize in dental care.', '2 years', ARRAY['KCSE Certificate', 'Interest in dental care']),
+('10000000-0000-0000-0000-000000000000', 'Diploma in Dental Nursing', 'Tailored for practicing or qualified nurses seeking to specialize in dental care. Qualified nurses interested in upgrading to a dental nurse are also allowed.', '2 years', ARRAY['KCSE Certificate', 'Interest in dental care', 'Qualified nurse (for upgrading)']),
+('20000000-0000-0000-0000-000000000000', 'Diploma in Community Dental Hygienist', 'Comprehensive diploma program for training as a community dental hygienist.', '2 years', ARRAY['KCSE Certificate', 'Interest in dental hygiene']),
+('21000000-0000-0000-0000-000000000000', 'Certificate in Community Dental Hygienist', 'Certificate program for entry-level community dental hygienist skills.', '1 year', ARRAY['KCSE Certificate', 'Interest in dental hygiene']),
 ('10101010-1010-1010-1010-101010101010', 'Certificate in Chairside Dental Assisting', 'Equips learners with practical skills to assist dental professionals effectively.', '1 year', ARRAY['KCSE Certificate', 'Interest in dental care']),
 ('10210210-2102-1021-0210-210210210210', 'Certificate in Ultrasound Technology', 'Hands-on course ideal for those interested in diagnostic imaging using ultrasound.', '1 year', ARRAY['KCSE Certificate', 'Interest in health sciences']),
 ('10310310-3103-1031-0310-310310310310', 'Certificate in Emergency X-ray Technology', 'Trains professionals in conducting X-ray imaging in emergency and clinical settings.', '1 year', ARRAY['KCSE Certificate', 'Interest in health sciences'])
