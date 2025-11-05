@@ -127,11 +127,21 @@ export default function Apply() {
         </div>
         <div className="mb-4">
           <label className="block mb-1 font-medium">KCSE Certificate <span className="text-red-600">*</span></label>
-          <input name="kcse" type="file" accept=".pdf,.jpg,.jpeg,.png" required className="w-full" onChange={handleChange} />
+          <div className="relative">
+            <input name="kcse" type="file" accept=".pdf,.jpg,.jpeg,.png" required className="w-full bg-gray-800 text-white border border-gray-700 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400" onChange={handleChange} />
+            <span className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-300 pointer-events-none">
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M4 12l4-4m0 0l4 4m-4-4v12" /></svg>
+            </span>
+          </div>
         </div>
         <div className="mb-4">
           <label className="block mb-1 font-medium">Other Documents (optional, max 4)</label>
-          <input name="others" type="file" multiple className="w-full" onChange={handleChange} />
+          <div className="relative">
+            <input name="others" type="file" multiple className="w-full bg-gray-800 text-white border border-gray-700 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400" onChange={handleChange} />
+            <span className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-300 pointer-events-none">
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M4 12l4-4m0 0l4 4m-4-4v12" /></svg>
+            </span>
+          </div>
         </div>
         {error && <div className="text-red-600 mb-2">{error}</div>}
         <button type="submit" className="w-full py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition">Submit Application</button>
