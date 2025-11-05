@@ -20,6 +20,7 @@ import diplomaDentalImg from './../assets/ddn.jpeg';
 import chairsideDentalImg from './../assets/ddc.jpeg';
 import ultrasoundImg from './../assets/dus.jpeg';
 import emergencyXrayImg from './../assets/dxr.jpeg';
+import diplomaCommunityDentalImg from './../assets/dnc.avif';
 
 import { useState } from "react";
 import { useNavigate } from 'react-router-dom';
@@ -77,14 +78,14 @@ const groupedCourses = [
 				   "Any qualification in community health course",
 				   "Certified nurse assistant course"
 			   ],
-			   image: undefined,
+			   image: diplomaCommunityDentalImg,
 		   },
 		   {
 			   id: 210,
 			   title: "Certificate in Community Dental Hygienist",
 			   description: "Certificate program for entry-level community dental hygienist skills.",
 			   requirements: ["KCSE Certificate", "Interest in dental hygiene"],
-			   image: undefined,
+			   image: diplomaCommunityDentalImg,
 		   },
 	   ],
    },
@@ -114,21 +115,7 @@ const groupedCourses = [
 					"Develop skills for community health improvement and sustainable development.",
 				requirements: ["KCSE Certificate", "Passion for community work"],
 				image: communityImg,
-			},
-<<<<<<< HEAD
-		   {
-			   id: 4,
-			   title: "Dental Assistant Technology",
-			   description:
-				   "Hands-on training for dental clinic support roles and patient care.",
-			   requirements: [
-				   "KCSE Certificate",
-				   "Interest in dental care",
-				   "Any certificate in healthcare profession"
-			   ],
-			   image: dentalImg,
-		   },
-=======
+				},
 			{
 				id: 4,
 				title: "Dental Assistant Technology (TVET Accredited)",
@@ -144,8 +131,7 @@ const groupedCourses = [
 					overview: `\
       \n**Course Overview**\n\nStart your career in dentistry with our 1-Year Dental Assistant Certificate. This hands-on, TVET-accredited program equips you with the knowledge, skills, and confidence to work in dental clinics, hospitals, and community health settings.\n\nYou'll learn everything from chairside assisting and radiography to infection control, dental office management, and community oral health promotion. With over 200 hours of clinical training, you'll graduate job-ready.\n\n**Program Structure**\n- Duration: 12 months (2 semesters / 3 terms)\n- Delivery: Lectures, skills lab, clinical practicum, assessments\n- Clinical Hours: 200+ hours of clinical placement\n\n**Entry Requirements**\n- KCSE D+ (or equivalent) or prior healthcare support training\n- Passion for healthcare and patient care\n- Good communication, attention to detail, manual dexterity\n\n**Course Benefits**\n- 1 Year Only - fast track into dentistry\n- Hands-On Training - extensive lab work\n- Career-Ready - high demand for dental assistants\n- Clinical placement guaranteed\n- Pathway to advanced dental programs\n- Digital radiography training included\n\n**Why Choose Our Dental Assistant Program?**\n- Comprehensive Curriculum: Covers all aspects of dental assisting from chairside techniques to radiography and office administration\n- Extensive Clinical Experience: 200+ hours of clinical placement in real dental settings\n- High Demand Career: Growing need for qualified dental assistants in Kenya and internationally\n- Expert Instruction: Learn from experienced dental professionals\n- Modern Facilities: Training includes digital radiography and modern dental equipment\n\n**Curriculum Overview**\n\n*Semester 1: Foundations of Dental Assisting (6 months)*\n- Introduction to Dentistry & Dental Assisting\n- Dental Anatomy & Physiology\n- Infection Prevention & Control\n- Dental Materials & Equipment\n- Basic Chairside Assisting\n- Practical & Clinical Skills\n\n*Semester 2: Advanced Skills & Clinical Practice (6 months)*\n- Dental Radiology\n- Dental Office Administration\n- Dental Specialties\n- Pharmacology & Dental Emergencies\n- Community & Preventive Dentistry\n- Clinical Practicum\n\n**Assessment & Certification**\n- Continuous Assessment (written & practical exams)\n- OSCE (skills-based)\n- Final Examination (theory & clinical)\n- Logbook & Portfolio (clinical competencies)\n\n**Career Paths**\n- Dental Assistant (private/public clinics)\n- Dental Radiography Assistant\n- Community Oral Health Promoter\n- Administrative support in dental offices\n- Pathway to further education: Diploma in Dental Technology, Oral Health, advanced certifications\n\n**Learning Outcomes**\n- Assist dentists during all routine dental procedures\n- Apply strict infection prevention and sterilization standards\n- Take and process dental radiographs safely\n- Manage patient records and office administration tasks\n- Educate patients on oral health and preventive practices\n- Respond appropriately to dental and medical emergencies\n\n**Enroll Today**\nAdmissions for November intake are ongoing.\n\n**Contact Us**\nMAIN CAMPUS, MERU MUNICIPALITY, RUNOGONE NEAR CHIEF'S NEXT TO E.A.P.C.CHURCH\nTelephone: 0113678958 or 0704478783\nEmail: rhemaprosper.1@gmail.com\nWebsite: https://rhymeinstitute.vercel.app\nCampuses: Machakos, Rongai\n\nRhyme Training Institute's strategic objective is to Train an Effective Workforce for the Global Market. We aspire to position ourselves as an institution of first choice in the training of world class Highly-Skilled vocational and technical Graduates.\n`
 				}
-			},
->>>>>>> 1798b19 (new commit)
+				},
 			{
 				id: 5,
 				title: "Business Management",
