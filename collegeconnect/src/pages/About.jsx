@@ -14,6 +14,16 @@ export default function About() {
           <li>Vibrant campus life</li>
           <li>Accommodation available for students</li>
         </ul>
+        {/* Strategic Objective & Accreditation */}
+        <div className="bg-blue-50 rounded-lg p-4 mb-6 shadow flex flex-col items-center">
+          <h3 className="text-xl font-bold text-blue-800 mb-2">Strategic Objective</h3>
+          <p className="text-gray-700 text-center mb-2">Rhyme Training Institute's strategic objective is to train an effective workforce for the global market. We aspire to position ourselves as an institution of first choice in the training of world-class, highly-skilled vocational and technical graduates.</p>
+          <span className="inline-block bg-green-200 text-green-800 px-4 py-1 rounded-full font-semibold mb-2">TVET Accredited</span>
+        </div>
+        {/* TVET Accreditation Note */}
+        <div className="mb-6 text-center">
+          <span className="inline-block bg-blue-200 text-blue-800 px-4 py-1 rounded-full font-semibold">Clinical Placement Guaranteed</span>
+        </div>
         <div className="mb-4">
           <div className="font-bold mb-1">Contact & Location</div>
           <div>Head Office (Meru): Rhema HSE, Runogone (opposite EAPC Church)</div>

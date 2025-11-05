@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
+import { useSearchParams } from 'react-router-dom';
 import applyImage from './../assets/apply0.jpg';
-
-// ...existing code...
 
 export default function Apply() {
   const [courses, setCourses] = useState([]);
@@ -17,23 +16,24 @@ export default function Apply() {
   });
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState("");
+  const [searchParams] = useSearchParams();
 
   useEffect(() => {
-    // Fetch courses from backend
     fetch('https://rhyme-xn72.onrender.com/api/courses', { headers: { 'Accept': 'application/json' } })
       .then(res => res.json())
-      .then(data => {
-        setCourses(data);
-        // Auto-select course from query param if present
-        const params = new URLSearchParams(window.location.search);
-        const courseParam = params.get("course");
-        if (courseParam) {
-          const course = data.find(c => c.id === parseInt(courseParam, 10));
-          if (course) setForm((prev) => ({ ...prev, courseId: course.id }));
-        }
-      })
+      .then(data => setCourses(data))
       .catch(() => setCourses([]));
   }, []);
+
+  useEffect(() => {
+    if (courses.length > 0) {
+      const courseParam = searchParams.get('course');
+      if (courseParam) {
+        const course = courses.find(c => c.id === courseParam);
+        if (course) setForm(prev => ({ ...prev, courseId: course.id }));
+      }
+    }
+  }, [courses, searchParams]);
 
   const handleChange = (e) => {
     const { name, value, files } = e.target;

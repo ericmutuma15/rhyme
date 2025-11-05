@@ -22,6 +22,7 @@ import ultrasoundImg from './../assets/dus.jpeg';
 import emergencyXrayImg from './../assets/dxr.jpeg';
 
 import { useState } from "react";
+import { useNavigate } from 'react-router-dom';
 
 const groupedCourses = [
    {
@@ -114,6 +115,7 @@ const groupedCourses = [
 				requirements: ["KCSE Certificate", "Passion for community work"],
 				image: communityImg,
 			},
+<<<<<<< HEAD
 		   {
 			   id: 4,
 			   title: "Dental Assistant Technology",
@@ -126,6 +128,24 @@ const groupedCourses = [
 			   ],
 			   image: dentalImg,
 		   },
+=======
+			{
+				id: 4,
+				title: "Dental Assistant Technology (TVET Accredited)",
+				description:
+					"Start your career in dentistry with our 1-Year Dental Assistant Certificate. This hands-on, TVET-accredited program equips you with the knowledge, skills, and confidence to work in dental clinics, hospitals, and community health settings. Includes 200+ hours of clinical placement, digital radiography, and modern facilities. High demand career with pathway to advanced dental programs.",
+				requirements: [
+					"KCSE D+ (or equivalent) or prior healthcare support training",
+					"Passion for healthcare and patient care",
+					"Good communication, attention to detail, manual dexterity"
+				],
+				image: dentalImg,
+				details: {
+					overview: `\
+      \n**Course Overview**\n\nStart your career in dentistry with our 1-Year Dental Assistant Certificate. This hands-on, TVET-accredited program equips you with the knowledge, skills, and confidence to work in dental clinics, hospitals, and community health settings.\n\nYou'll learn everything from chairside assisting and radiography to infection control, dental office management, and community oral health promotion. With over 200 hours of clinical training, you'll graduate job-ready.\n\n**Program Structure**\n- Duration: 12 months (2 semesters / 3 terms)\n- Delivery: Lectures, skills lab, clinical practicum, assessments\n- Clinical Hours: 200+ hours of clinical placement\n\n**Entry Requirements**\n- KCSE D+ (or equivalent) or prior healthcare support training\n- Passion for healthcare and patient care\n- Good communication, attention to detail, manual dexterity\n\n**Course Benefits**\n- 1 Year Only - fast track into dentistry\n- Hands-On Training - extensive lab work\n- Career-Ready - high demand for dental assistants\n- Clinical placement guaranteed\n- Pathway to advanced dental programs\n- Digital radiography training included\n\n**Why Choose Our Dental Assistant Program?**\n- Comprehensive Curriculum: Covers all aspects of dental assisting from chairside techniques to radiography and office administration\n- Extensive Clinical Experience: 200+ hours of clinical placement in real dental settings\n- High Demand Career: Growing need for qualified dental assistants in Kenya and internationally\n- Expert Instruction: Learn from experienced dental professionals\n- Modern Facilities: Training includes digital radiography and modern dental equipment\n\n**Curriculum Overview**\n\n*Semester 1: Foundations of Dental Assisting (6 months)*\n- Introduction to Dentistry & Dental Assisting\n- Dental Anatomy & Physiology\n- Infection Prevention & Control\n- Dental Materials & Equipment\n- Basic Chairside Assisting\n- Practical & Clinical Skills\n\n*Semester 2: Advanced Skills & Clinical Practice (6 months)*\n- Dental Radiology\n- Dental Office Administration\n- Dental Specialties\n- Pharmacology & Dental Emergencies\n- Community & Preventive Dentistry\n- Clinical Practicum\n\n**Assessment & Certification**\n- Continuous Assessment (written & practical exams)\n- OSCE (skills-based)\n- Final Examination (theory & clinical)\n- Logbook & Portfolio (clinical competencies)\n\n**Career Paths**\n- Dental Assistant (private/public clinics)\n- Dental Radiography Assistant\n- Community Oral Health Promoter\n- Administrative support in dental offices\n- Pathway to further education: Diploma in Dental Technology, Oral Health, advanced certifications\n\n**Learning Outcomes**\n- Assist dentists during all routine dental procedures\n- Apply strict infection prevention and sterilization standards\n- Take and process dental radiographs safely\n- Manage patient records and office administration tasks\n- Educate patients on oral health and preventive practices\n- Respond appropriately to dental and medical emergencies\n\n**Enroll Today**\nAdmissions for November intake are ongoing.\n\n**Contact Us**\nMAIN CAMPUS, MERU MUNICIPALITY, RUNOGONE NEAR CHIEF'S NEXT TO E.A.P.C.CHURCH\nTelephone: 0113678958 or 0704478783\nEmail: rhemaprosper.1@gmail.com\nWebsite: https://rhymeinstitute.vercel.app\nCampuses: Machakos, Rongai\n\nRhyme Training Institute's strategic objective is to Train an Effective Workforce for the Global Market. We aspire to position ourselves as an institution of first choice in the training of world class Highly-Skilled vocational and technical Graduates.\n`
+				}
+			},
+>>>>>>> 1798b19 (new commit)
 			{
 				id: 5,
 				title: "Business Management",
@@ -229,6 +249,7 @@ const groupedCourses = [
 
 export default function Courses() {
 	const [selected, setSelected] = useState(null);
+	const navigate = useNavigate();
 	return (
 		<div className="w-full min-h-screen bg-gradient-to-br from-blue-50 to-blue-100 py-16 px-0 md:px-4">
 			<div className="max-w-6xl mx-auto">
@@ -276,7 +297,7 @@ export default function Courses() {
 				))}
 				{selected && (
 					<div className="fixed inset-0 bg-black bg-opacity-40 flex items-center justify-center z-50">
-						<div className="bg-white rounded-lg shadow-lg p-8 max-w-md w-full relative">
+						<div className="bg-white rounded-lg shadow-lg p-8 max-w-md w-full relative max-h-[90vh] overflow-y-auto">
 							<button
 								className="absolute top-2 right-2 text-gray-500 hover:text-gray-800"
 								onClick={() => setSelected(null)}
@@ -302,14 +323,65 @@ export default function Courses() {
 									))}
 								</ul>
 							</div>
-<button
-  className="block w-full text-center py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition font-semibold"
-  onClick={() => {
-	window.location.href = `/apply?course=${selected.id}`;
-  }}
->
-  Apply for this Course
-</button>
+							{/* Show extra details for Dental Assistant Technology, only course-relevant info */}
+							{selected.id === 4 && (
+								<div className="mb-4 text-sm text-gray-800 whitespace-pre-line border-t pt-4">
+									<div>
+										<span className="font-bold">Program Overview</span><br/>
+										1-Year TVET Accredited Dental Assistant Certificate. Hands-on training for dental clinics, hospitals, and community health settings. Includes chairside assisting, radiography, infection control, office management, and oral health promotion. 200+ hours clinical placement.
+										<br/><br/>
+										<span className="font-bold">Program Structure</span><br/>
+										Duration: 12 months (2 semesters / 3 terms)<br/>
+										Delivery: Lectures, skills lab, clinical practicum, assessments<br/>
+										Clinical Hours: 200+ hours clinical placement
+										<br/><br/>
+										<span className="font-bold">Curriculum Overview</span><br/>
+										Semester 1: Foundations of Dental Assisting<br/>
+										- Introduction to Dentistry & Dental Assisting<br/>
+										- Dental Anatomy & Physiology<br/>
+										- Infection Prevention & Control<br/>
+										- Dental Materials & Equipment<br/>
+										- Basic Chairside Assisting<br/>
+										Semester 2: Advanced Skills & Clinical Practice<br/>
+										- Dental Radiology<br/>
+										- Dental Office Administration<br/>
+										- Dental Specialties<br/>
+										- Pharmacology & Dental Emergencies<br/>
+										- Community & Preventive Dentistry<br/>
+										- Clinical Practicum
+										<br/><br/>
+										<span className="font-bold">Course Benefits</span><br/>
+										- Fast track: 1 year only<br/>
+										- Hands-on training & lab work<br/>
+										- High demand career<br/>
+										- Clinical placement guaranteed<br/>
+										- Pathway to advanced dental programs<br/>
+										- Digital radiography training included
+										<br/><br/>
+										<span className="font-bold">Career Paths</span><br/>
+										- Dental Assistant (private/public clinics)<br/>
+										- Dental Radiography Assistant<br/>
+										- Community Oral Health Promoter<br/>
+										- Administrative support in dental offices<br/>
+										- Pathway to further education: Diploma in Dental Technology, Oral Health, advanced certifications
+										<br/><br/>
+										<span className="font-bold">Contact & Enrollment</span><br/>
+										Admissions for November intake ongoing.<br/>
+										Main Campus: Meru Municipality, Runogone near Chief's next to E.A.P.C. Church<br/>
+										Tel: 0113678958 / 0704478783<br/>
+										Email: rhemaprosper.1@gmail.com<br/>
+										Website: https://rhymeinstitute.vercel.app
+									</div>
+								</div>
+							)}
+							<button
+								className="block w-full text-center py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition font-semibold"
+								onClick={() => {
+									navigate(`/apply?course=${selected.id}`);
+								}}
+							>
+								Apply for this Course
+							</button>
 						</div>
 					</div>
 				)}

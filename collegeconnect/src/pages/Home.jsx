@@ -45,6 +45,13 @@ export default function Home() {
             </p>
           </div>
         </div>
+        {/* Strategic Objective & Accreditation */}
+        <div className="bg-blue-100 rounded-lg p-4 mb-6 shadow flex flex-col items-center">
+          <h3 className="text-xl font-bold text-blue-800 mb-2">Our Strategic Objective</h3>
+          <p className="text-gray-700 text-center mb-2">Rhyme Training Institute's strategic objective is to train an effective workforce for the global market. We aspire to position ourselves as an institution of first choice in the training of world-class, highly-skilled vocational and technical graduates.</p>
+          <span className="inline-block bg-green-200 text-green-800 px-4 py-1 rounded-full font-semibold mb-2">TVET Accredited</span>
+          <span className="inline-block bg-blue-200 text-blue-800 px-4 py-1 rounded-full font-semibold">Clinical Placement Guaranteed</span>
+        </div>
       </div>
 
       {/* Admission Ongoing Area */}
