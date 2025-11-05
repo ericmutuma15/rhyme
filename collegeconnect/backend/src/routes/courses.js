@@ -2,10 +2,10 @@ const express = require('express');
 const db = require('../db.js');
 const router = express.Router();
 
-// GET /api/courses - List all courses (include slug)
+// GET /api/courses - List all courses (production safe, no slug)
 router.get('/', async (req, res) => {
   try {
-    const { rows } = await db.query('SELECT id, title, slug FROM courses');
+    const { rows } = await db.query('SELECT id, title, description, duration, requirements FROM courses');
     res.json(rows);
   } catch (err) {
     console.error('GET /api/courses error:', err);

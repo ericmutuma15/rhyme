@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import { useSearchParams } from 'react-router-dom';
 import applyImage from './../assets/apply0.jpg';
 
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
+
 export default function Apply() {
   const [courses, setCourses] = useState([]);
   const [form, setForm] = useState({
@@ -19,7 +21,7 @@ export default function Apply() {
   const [searchParams] = useSearchParams();
 
   useEffect(() => {
-    fetch('https://rhyme-xn72.onrender.com/api/courses', { headers: { 'Accept': 'application/json' } })
+    fetch(`${API_URL}/api/courses`, { headers: { 'Accept': 'application/json' } })
       .then(res => res.json())
       .then(data => setCourses(data))
       .catch(() => setCourses([]));
@@ -68,7 +70,7 @@ export default function Apply() {
       }
     });
     try {
-      const res = await fetch("https://rhyme-xn72.onrender.com/api/applications", {
+      const res = await fetch(`${API_URL}/api/applications`, {
         method: "POST",
         body: data,
       });
