@@ -1,4 +1,3 @@
 // src/utils/api.js
-// Utility to get the correct API base URL depending on environment
-
-export const API_BASE = 'https://rhyme-xn72.onrender.com/api';
+// Utility to get the API base URL. Prefer VITE_API_BASE (overrides in Vercel or .env).
+export const API_BASE = import.meta.env.VITE_API_BASE || 'https://rhyme-xn72.onrender.com/api';

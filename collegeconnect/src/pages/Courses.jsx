@@ -352,7 +352,7 @@ export default function Courses() {
 										- Pathway to further education: Diploma in Dental Technology, Oral Health, advanced certifications
 										<br/><br/>
 										<span className="font-bold">Contact & Enrollment</span><br/>
-										Admissions for November intake ongoing.<br/>
+										Admissions ongoing.<br/>
 										Main Campus: Meru Municipality, Runogone near Chief's next to E.A.P.C. Church<br/>
 										Tel: 0113678958 / 0704478783<br/>
 										Email: rhemaprosper.1@gmail.com<br/>
