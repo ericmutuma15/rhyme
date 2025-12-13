@@ -147,7 +147,7 @@ export default function Home() {
         <div className="flex flex-col items-center">
           <div className="font-bold text-blue-800 mb-1">Contact Us</div>
           <div className="text-gray-700">Head Office (Meru): Rhema HSE, Runogone (opposite EAPC Church)</div>
-          <div className="text-gray-700">Phone: <a href="tel:0113678958" className="text-blue-700 hover:underline">0113 678 958</a> / <a href="tel:0720838566" className="text-blue-700 hover:underline">0720 838 566</a></div>
+          <div className="text-gray-700">Phone: <a href="tel:0113678958" className="text-blue-700 hover:underline">0113 678 958</a> / <a href="tel:0781104031" className="text-blue-700 hover:underline">0781 104 031</a></div>
           <div className="text-gray-700">Email: <a href="mailto:rhemaprosper1@gmail.com" className="text-blue-700 hover:underline">rhemaprosper1@gmail.com</a></div>
           {/* WhatsApp Icon */}
           <a href="https://wa.me/254704478783" target="_blank" rel="noopener noreferrer" className="mt-4 flex items-center gap-2 text-green-600 hover:text-green-700">
@@ -207,7 +207,7 @@ export default function Home() {
             <ul className="space-y-1">
               <li>Head Office (Meru): Rhema HSE, Runogone</li>
               <li>Phone: <a href="tel:0113678958" className="hover:underline">0113 678 958</a></li>
-              <li>Phone: <a href="tel:0720838566" className="hover:underline">0720 838 566</a></li>
+              <li>Phone: <a href="tel:0781104031" className="hover:underline">0781 104 031</a></li>
               <li>Email: <a href="mailto:rhemaprosper1@gmail.com" className="hover:underline">rhemaprosper1@gmail.com</a></li>
             </ul>
           </div>

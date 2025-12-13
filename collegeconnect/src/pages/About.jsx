@@ -27,7 +27,7 @@ export default function About() {
         <div className="mb-4">
           <div className="font-bold mb-1">Contact & Location</div>
           <div>Head Office (Meru): Rhema HSE, Runogone (opposite EAPC Church)</div>
-          <div>Phone: <a href="tel:0113678958" className="text-blue-700 hover:underline">0113 678 958</a> / <a href="tel:0720838566" className="text-blue-700 hover:underline">0720 838 566</a></div>
+          <div>Phone: <a href="tel:0113678958" className="text-blue-700 hover:underline">0113 678 958</a> / <a href="tel:0781104031" className="text-blue-700 hover:underline">0781 104 031</a></div>
           <div>Email: <a href="mailto:rhemaprosper1@gmail.com" className="text-blue-700 hover:underline">rhemaprosper1@gmail.com</a></div>
         </div>
         <div className="mb-4">
@@ -40,7 +40,7 @@ export default function About() {
           </ul>
         </div>
         <div className="text-center mt-8">
-          <span className="inline-block bg-blue-100 text-blue-700 px-4 py-2 rounded-full font-semibold">Call Us Today: 0113 678 958 / 0720 838 566</span>
+          <span className="inline-block bg-blue-100 text-blue-700 px-4 py-2 rounded-full font-semibold">Call Us Today: 0113 678 958 / 0781 104 031</span>
         </div>
       </div>
     </div>
