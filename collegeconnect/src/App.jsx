@@ -6,6 +6,7 @@ import About from "./pages/About";
 import Courses from "./pages/Courses";
 import Apply from "./pages/Apply";
 import AdminDashboard from "./pages/AdminDashboard";
+import SeniorCitizens from "./pages/SeniorCitizens";
 import "./App.css";
 import LOGO from './assets/rhymelogo.png';
 
@@ -52,6 +53,7 @@ export default function App() {
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/courses" element={<Courses />} />
+          <Route path="/senior" element={<SeniorCitizens />} />
           <Route path="/apply" element={<Apply />} />
           <Route path="/admin" element={<AdminDashboard />} />
         </Routes>

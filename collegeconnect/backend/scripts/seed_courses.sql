@@ -39,6 +39,7 @@ INSERT INTO courses (id, title, description, duration, requirements) VALUES
 ('eeeeeeee-eeee-eeee-eeee-eeeeeeeeeeee', 'Home Management & Basic Caregiving', 'Skills for home management and caregiving for families and communities.', '3 months', ARRAY['KCSE Certificate']),
 ('ffffffff-ffff-ffff-ffff-ffffffffffff', 'Basic Literacy, Theology & Biblical Studies', 'Foundational literacy and biblical studies for all ages.', '3 months', ARRAY['Open to all']),
 ('00000000-0000-0000-0000-000000000000', 'Kenyan Sign Language', 'Learn Kenyan Sign Language for communication and inclusion.', '3 months', ARRAY['Open to all'])
+('12121212-1212-1212-1212-121212121212', 'Computer Literacy', 'Course intended to train senior citizens on computer literacy so they can catch up with the current digital lifestyle, access government services, and use smartphones and social media.', '3 months', ARRAY['Open to senior citizens', 'No prior experience required'])
 ON CONFLICT (title) DO NOTHING;
 
 

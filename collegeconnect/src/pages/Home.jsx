@@ -9,6 +9,7 @@ import careerImg from './../assets/career.jpg';
 import courseImg from './../assets/newcourses.jpg'
 import janeImg from './../assets/jane.jpg'
 import samuelImg from './../assets/samuel.jpg'
+import computerLiteracyImg from './../assets/complit.jpg';
 import aishaJpg from './../assets/aisha.jpg'
 import brookImg from './../assets/Designer.png'
 import bfhImg from './../assets/bfhlogo.png'
@@ -52,6 +53,17 @@ export default function Home() {
           <span className="inline-block bg-green-200 text-green-800 px-4 py-1 rounded-full font-semibold mb-2">TVET Accredited</span>
           <span className="inline-block bg-blue-200 text-blue-800 px-4 py-1 rounded-full font-semibold">Clinical Placement Guaranteed</span>
         </div>
+        {/* Mission & Vision */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+          <div className="bg-white rounded-lg p-4 shadow">
+            <h4 className="text-lg font-bold text-blue-800">Our Mission</h4>
+            <p className="text-gray-700">Empower learners with practical, industry-ready skills and digital confidence to unlock employment and community impact.</p>
+          </div>
+          <div className="bg-white rounded-lg p-4 shadow">
+            <h4 className="text-lg font-bold text-blue-800">Our Vision</h4>
+            <p className="text-gray-700">To be the region’s leading vocational institute, transforming lives through accessible, high-quality training and innovation.</p>
+          </div>
+        </div>
       </div>
 
       {/* Admission Ongoing Area */}
@@ -64,6 +76,10 @@ export default function Home() {
 
       {/* Quick Links Section */}
       <section className="w-full max-w-4xl mx-auto mt-10 grid grid-cols-1 md:grid-cols-4 gap-6">
+        <a href="/senior" className="flex flex-col items-center bg-white rounded-lg shadow p-4 hover:bg-blue-50 transition">
+          <img src={computerLiteracyImg} alt="Computer Literacy" className="w-12 h-12 mb-2 rounded-full object-cover" />
+          <span className="font-semibold text-blue-700">Computer Literacy (Seniors)</span>
+        </a>
         <a href="/apply" className="flex flex-col items-center bg-white rounded-lg shadow p-4 hover:bg-blue-50 transition">
           <img src={applyImg} alt="Apply" className="w-12 h-12 mb-2 rounded-full object-cover" />
           <span className="font-semibold text-blue-700">Apply Now</span>

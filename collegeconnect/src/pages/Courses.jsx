@@ -21,6 +21,7 @@ import chairsideDentalImg from './../assets/ddc.jpeg';
 import ultrasoundImg from './../assets/dus.jpeg';
 import emergencyXrayImg from './../assets/dxr.jpeg';
 import diplomaCommunityDentalImg from './../assets/dnc.avif';
+import computerLiteracyImg from './../assets/complit.jpg';
 
 import { useState } from "react";
 import { useNavigate } from 'react-router-dom';
@@ -229,6 +230,13 @@ const groupedCourses = [
 				requirements: ["Open to all"],
 				image: signLanguageShortImg,
 			},
+				{
+					id: 17,
+					title: "Computer Literacy",
+					description: "Course intended to train senior citizens on computer literacy so they can catch up with the current digital lifestyle, access government services, and use smartphones and social media.",
+					requirements: ["Open to senior citizens", "No prior experience required"],
+					image: computerLiteracyImg,
+				},
 		],
 	},
 ];
