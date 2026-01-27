@@ -104,7 +104,7 @@ export default function Home() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div className="bg-white rounded-lg shadow p-4 flex flex-col items-center">
             <img src={admissionsImg} alt="News 1" className="w-full h-32 object-cover rounded mb-3" />
-            <div className="font-semibold text-blue-700 mb-1">Admissions Open for September Intake</div>
+            <div className="font-semibold text-blue-700 mb-1">Admissions Open for March Intake</div>
             <div className="text-gray-600 text-sm mb-2">March 2026</div>
             <p className="text-gray-700 text-center text-sm">Apply now for our upcoming March intake. Limited slots available for diploma and certificate courses!</p>
           </div>
