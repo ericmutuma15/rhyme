@@ -105,20 +105,20 @@ export default function Home() {
           <div className="bg-white rounded-lg shadow p-4 flex flex-col items-center">
             <img src={admissionsImg} alt="News 1" className="w-full h-32 object-cover rounded mb-3" />
             <div className="font-semibold text-blue-700 mb-1">Admissions Open for September Intake</div>
-            <div className="text-gray-600 text-sm mb-2">10 July 2025</div>
-            <p className="text-gray-700 text-center text-sm">Apply now for our upcoming September intake. Limited slots available for diploma and certificate courses!</p>
+            <div className="text-gray-600 text-sm mb-2">March 2026</div>
+            <p className="text-gray-700 text-center text-sm">Apply now for our upcoming March intake. Limited slots available for diploma and certificate courses!</p>
           </div>
           <div className="bg-white rounded-lg shadow p-4 flex flex-col items-center">
             <img src={careerImg} alt="News 2" className="w-full h-32 object-cover rounded mb-3" />
             <div className="font-semibold text-blue-700 mb-1">Open Day & Career Fair</div>
-            <div className="text-gray-600 text-sm mb-2">20 August 2025</div>
+            <div className="text-gray-600 text-sm mb-2">20 April 2025</div>
             <p className="text-gray-700 text-center text-sm">Join us for our annual open day and career fair. Meet our faculty and explore your future career options.</p>
           </div>
           <div className="bg-white rounded-lg shadow p-4 flex flex-col items-center">
             <img src={courseImg} alt="News 3" className="w-full h-32 object-cover rounded mb-3" />
             <div className="font-semibold text-blue-700 mb-1">New Short Courses Launched</div>
             <div className="text-gray-600 text-sm mb-2">5 July 2025</div>
-            <p className="text-gray-700 text-center text-sm">We have introduced new short courses in ICT, Business, and Health. Enroll today to upskill!</p>
+            <p className="text-gray-700 text-center text-sm">We have introduced new short courses in ICT, Business, Health and Paralegal studies. Enroll today to upskill!</p>
           </div>
         </div>
       </section>

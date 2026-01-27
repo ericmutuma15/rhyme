@@ -326,6 +326,38 @@ const coursesByDepartment = [
   },
 
   {
+    department: "SCHOOL OF PARLEGAL STUDIES",
+    subcategories: [
+      {
+        name: "Paralegal Programs",
+        courses: [
+          {
+            id: 300,
+            title: "Judicial Assistant Technology",
+            description:
+              "Training for court clerks and judicial assistants on court procedures, documentation, and administration.",
+            requirements: ["KCSE Certificate or equivalent", "Passion for legal administration"],
+          },
+          {
+            id: 301,
+            title: "Diploma in Community Paralegal Officer",
+            description:
+              "Diploma program preparing community paralegals to provide legal aid, rights awareness and dispute resolution at community level.",
+            requirements: ["KCSE Certificate or equivalent", "Commitment to community service"],
+          },
+          {
+            id: 302,
+            title: "Certificate in Law",
+            description:
+              "Introductory certificate in law covering fundamentals of legal systems, contracts, and basic civil procedure.",
+            requirements: ["KCSE Certificate or equivalent"],
+          }
+        ]
+      }
+    ]
+  },
+
+  {
     department: "New / Special Intake",
     subcategories: [
       {
