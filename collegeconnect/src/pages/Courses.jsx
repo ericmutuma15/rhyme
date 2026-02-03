@@ -21,6 +21,7 @@ import chairsideDentalImg from './../assets/ddc.jpeg';
 import ultrasoundImg from './../assets/dus.jpeg';
 import emergencyXrayImg from './../assets/dxr.jpeg';
 import diplomaCommunityDentalImg from './../assets/dnc.avif';
+import diplomaCommunityOralImg from './../assets/dnc.avif';
 import computerLiteracyImg from './../assets/complit.jpg';
 
 import { useState } from "react";
@@ -80,6 +81,30 @@ const coursesByDepartment = [
               "Certificate program for entry-level community dental hygienist skills.",
             requirements: ["KCSE Certificate", "Interest in dental hygiene"],
             image: diplomaCommunityDentalImg,
+          },
+          {
+            id: 400,
+            title: "Diploma in Community Oral Health",
+            description:
+              "Comprehensive diploma program in community oral health with emphasis on preventive, promotive, and curative services with strong clinical exposure and applied research.",
+            requirements: [
+              "KCSE Mean Grade C (Plain) or equivalent",
+              "C and above in Chemistry, Physics or Mathematics (any one)",
+              "C in English or Kiswahili"
+            ],
+            image: diplomaCommunityOralImg,
+            details: {
+              institution: "Rhyme Training Institute",
+              modeOfStudy: "Full-time",
+              totalDuration: "3 Years",
+              programStructure: [
+                "Year 1: Academic Coursework (2 Semesters)",
+                "Year 2: 1 semester academic course work + 4 Months Supervised Clinical Practicals",
+                "Year 3: 1 semester academic coursework + 4 Months Community Dissertation Project"
+              ],
+              trainingFocus: "Preventive, promotive, curative and community-based oral health services with strong clinical exposure and applied research.",
+              award: "Diploma in Community Oral Health"
+            }
           },
           {
             id: 4,
@@ -369,7 +394,8 @@ const coursesByDepartment = [
           { id: 102, title: "Certificate in Ultrasound Technology" },
           { id: 103, title: "Certificate in Emergency X-ray Technology" },
           { id: 200, title: "Diploma in Community Dental Hygienist" },
-          { id: 210, title: "Certificate in Community Dental Hygienist" }
+          { id: 210, title: "Certificate in Community Dental Hygienist" },
+          { id: 400, title: "Diploma in Community Oral Health" }
         ]
       }
     ]
@@ -528,6 +554,27 @@ export default function Courses() {
                     Tel: 0113678958 / 0704478783<br/>
                     Email: rhemaprosper.1@gmail.com<br/>
                     Website: https://rhymeinstitute.vercel.app
+                  </div>
+                </div>
+              )}
+
+              {/* Show extra details for Diploma in Community Oral Health (id === 400) */}
+              {selected.id === 400 && selected.details && (
+                <div className="mb-4 text-sm text-gray-800 border-t pt-4">
+                  <div>
+                    <span className="font-bold">Institution:</span> {selected.details.institution}<br/>
+                    <span className="font-bold">Mode of Study:</span> {selected.details.modeOfStudy}<br/>
+                    <span className="font-bold">Total Duration:</span> {selected.details.totalDuration}<br/>
+                    <br/>
+                    <span className="font-bold">Programme Structure</span><br/>
+                    {selected.details.programStructure && selected.details.programStructure.map((item, i) => (
+                      <div key={i}>- {item}<br/></div>
+                    ))}
+                    <br/>
+                    <span className="font-bold">Training Focus</span><br/>
+                    {selected.details.trainingFocus}<br/>
+                    <br/>
+                    <span className="font-bold">Award:</span> {selected.details.award}
                   </div>
                 </div>
               )}
