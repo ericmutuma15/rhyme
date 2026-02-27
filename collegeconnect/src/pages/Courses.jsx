@@ -192,6 +192,18 @@ const coursesByDepartment = [
             requirements: ["KCSE Certificate", "Interest in caregiving"],
             image: firstAidImg,
           }
+          ,
+          {
+            id: 110,
+            title: "Certificate in Certified Nurse Assistant (Nurse Aid)",
+            description:
+              "Practical certificate training for nurse aides and caregivers to provide basic nursing and caregiving services.",
+            requirements: [
+              "Form 4 certificate or its equivalent",
+              "Desire to work as a nurse or caregiver"
+            ],
+            image: homeShortImg,
+          }
         ]
       }
     ]
@@ -273,6 +285,18 @@ const coursesByDepartment = [
               "In-depth study of the Bible and theology for ministry and personal growth.",
             requirements: ["KCSE Certificate", "Interest in theology"],
             image: bibleImg,
+          }
+          ,
+          {
+            id: 111,
+            title: "Certificate in Theology for ECDE",
+            description:
+              "Theology certificate tailored for Early Childhood Development Education (ECDE) to prepare Sunday school teachers and caregivers with foundational biblical teaching and child-appropriate ministry skills.",
+            requirements: [
+              "Form 4 certificate or its equivalent",
+              "Desire to become a Sunday school teacher"
+            ],
+            image: literacyShortImg,
           }
         ]
       }
@@ -383,90 +407,6 @@ const coursesByDepartment = [
   },
 
   {
-    department: "Department of Artisan Trades & Skills",
-    subcategories: [
-      {
-        name: "Skilled Trades & Craftsmanship",
-        courses: [
-          {
-            id: 501,
-            title: "Carpentry & Joinery (TVET Accredited)",
-            description:
-              "Master the art and craft of carpentry with hands-on training in wood working, furniture making, and construction. TVET-accredited course with industry certification upon completion.",
-            requirements: [
-              "KCSE Certificate or equivalent",
-              "Manual dexterity and attention to detail",
-              "Interest in skilled trades and craftsmanship"
-            ],
-            image: waterImg,
-          },
-          {
-            id: 502,
-            title: "Welding & Metal Fabrication (TVET Accredited)",
-            description:
-              "Comprehensive training in welding techniques, metal fabrication, and structural assembly. Industry-recognized TVET accreditation ensures career advancement and self-employment opportunities.",
-            requirements: [
-              "KCSE Certificate or equivalent",
-              "Good physical fitness",
-              "Interest in technical trades"
-            ],
-            image: waterImg,
-          },
-          {
-            id: 503,
-            title: "Electrical Installation & Maintenance (TVET Accredited)",
-            description:
-              "Professional training in residential and commercial electrical installation, maintenance, and troubleshooting. TVET-accredited program with certification for safe electrical practices.",
-            requirements: [
-              "KCSE Certificate or equivalent",
-              "Basic mathematics and physics knowledge",
-              "Safety-conscious mindset"
-            ],
-            image: computerImg,
-          },
-          {
-            id: 504,
-            title: "Plumbing & Pipe Fitting (TVET Accredited)",
-            description:
-              "Specialized training in plumbing systems, pipe installation, maintenance, and repair. Industry-accredited course for residential and commercial applications.",
-            requirements: [
-              "KCSE Certificate or equivalent",
-              "Problem-solving skills",
-              "Interest in water systems and infrastructure"
-            ],
-            image: waterImg,
-          },
-          {
-            id: 505,
-            title: "Masonry & Construction (TVET Accredited)",
-            description:
-              "Hands-on training in masonry, bricklaying, concrete work, and building construction techniques. TVET-accredited program supporting infrastructure development.",
-            requirements: [
-              "KCSE Certificate or equivalent",
-              "Physical fitness and stamina",
-              "Interest in construction and building"
-            ],
-            image: waterImg,
-          },
-          {
-            id: 506,
-            title: "Motor Vehicle Mechanics (TVET Accredited)",
-            description:
-              "Comprehensive training in vehicle maintenance, repair, diagnostics, and engine work. TVET-accredited course for automotive industry professionals.",
-            requirements: [
-              "KCSE Certificate or equivalent",
-              "Mechanical aptitude",
-              "Interest in automotive technology"
-            ],
-            image: computerImg,
-          }
-        ]
-      }
-    ],
-    csr_note: "The Department of Artisan Trades & Skills is committed to inclusion and community development through affordable, quality vocational training. All artisan courses are offered at subsidized rates to ensure accessibility for learners from disadvantaged backgrounds. Upon successful completion, graduates receive TVET-accredited certificates recognized by employers across East Africa, enabling pathways to employment, self-employment, and business ownership for community uplift and sustainable income generation."
-  },
-
-  {
     department: "New / Special Intake",
     subcategories: [
       {
@@ -522,16 +462,6 @@ export default function Courses() {
                   Courses in this department are geared towards offering good oral health to the public in order to mitigate the oral health burden.
                   To that end, these courses are offered at subsidized fees and scholarships are available for deserving students.
                   Needy students are also provided with subsidized accommodation and upkeep.
-                </p>
-              </div>
-            )}
-
-            {/* If this is the Department of Artisan Trades, show CSR message */}
-            {dept.department === "Department of Artisan Trades & Skills" && dept.csr_note && (
-              <div className="mb-6 bg-green-50 p-4 rounded shadow-sm border-l-4 border-green-500">
-                <h4 className="font-semibold text-green-700 mb-2">Artisan Trades: Inclusion & Community Development</h4>
-                <p className="text-gray-700">
-                  {dept.csr_note}
                 </p>
               </div>
             )}
@@ -676,7 +606,8 @@ export default function Courses() {
               <button
                 className="block w-full text-center py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition font-semibold"
                 onClick={() => {
-                  navigate(`/apply?course=${selected.id}`);
+                  const formUrl = 'https://docs.google.com/forms/d/e/1FAIpQLSdXExk9GJGyXOqwLPhfqWjZhONCH5M5-jdiFlssPGphlYOwbw/viewform?usp=publish-editor';
+                  window.open(formUrl, '_blank', 'noopener,noreferrer');
                 }}
               >
                 Apply for this Course

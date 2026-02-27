@@ -1,10 +1,25 @@
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Courses from "./pages/Courses";
-import Apply from "./pages/Apply";
+// Temporarily comment out the local Apply page — route will open external form instead
+// import Apply from "./pages/Apply";
+
+function ExternalApply() {
+  useEffect(() => {
+    const formUrl = 'https://docs.google.com/forms/d/e/1FAIpQLSdXExk9GJGyXOqwLPhfqWjZhONCH5M5-jdiFlssPGphlYOwbw/viewform?usp=publish-editor';
+    // Open the form in a new tab
+    window.open(formUrl, '_blank', 'noopener,noreferrer');
+  }, []);
+
+  return (
+    <div className="p-8 text-center">
+      Opening application form in a new tab...
+    </div>
+  );
+}
 import AdminDashboard from "./pages/AdminDashboard";
 import SeniorCitizens from "./pages/SeniorCitizens";
 import "./App.css";
@@ -54,7 +69,7 @@ export default function App() {
           <Route path="/about" element={<About />} />
           <Route path="/courses" element={<Courses />} />
           <Route path="/senior" element={<SeniorCitizens />} />
-          <Route path="/apply" element={<Apply />} />
+          <Route path="/apply" element={<ExternalApply />} />
           <Route path="/admin" element={<AdminDashboard />} />
         </Routes>
       </Router>

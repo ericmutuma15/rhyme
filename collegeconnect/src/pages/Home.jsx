@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import homeImage from './../assets/edu.jpg';
+import { useNavigate } from 'react-router-dom';
 import logoImg from './../assets/rhymelogo.png';
 import applyImg from './../assets/applynow.jpg';
 import coursesImg from './../assets/newcourse.png';
@@ -206,6 +207,9 @@ function PartnersCarousel() {
 }
 
 export default function Home() {
+  const navigate = useNavigate();
+  const [seniorModalOpen, setSeniorModalOpen] = useState(false);
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-blue-100 flex flex-col items-center w-full">
       {/* Hero Section */}
@@ -265,29 +269,73 @@ export default function Home() {
         <a href="/courses" className="px-8 py-3 bg-blue-700 text-white rounded-lg font-bold text-lg shadow hover:bg-blue-800 transition mb-2">Explore Our Courses</a>
       </div>
 
-      {/* Quick Links Section */}
-      <section className="w-full max-w-4xl mx-auto mt-10 grid grid-cols-1 md:grid-cols-4 gap-6">
-        <a href="/senior" className="flex flex-col items-center bg-white rounded-lg shadow p-4 hover:bg-blue-50 transition">
-          <img src={computerLiteracyImg} alt="Computer Literacy" className="w-12 h-12 mb-2 rounded-full object-cover" />
-          <span className="font-semibold text-blue-700">Computer Literacy (Seniors)</span>
-        </a>
-        <a href="/apply" className="flex flex-col items-center bg-white rounded-lg shadow p-4 hover:bg-blue-50 transition">
-          <img src={applyImg} alt="Apply" className="w-12 h-12 mb-2 rounded-full object-cover" />
-          <span className="font-semibold text-blue-700">Apply Now</span>
-        </a>
-        <a href="/courses" className="flex flex-col items-center bg-white rounded-lg shadow p-4 hover:bg-blue-50 transition">
-          <img src={coursesImg} alt="Courses" className="w-12 h-12 mb-2 rounded-full object-cover" />
-          <span className="font-semibold text-blue-700">Courses</span>
-        </a>
-        <a href="/about" className="flex flex-col items-center bg-white rounded-lg shadow p-4 hover:bg-blue-50 transition">
-          <img src={aboutImg} alt="About" className="w-12 h-12 mb-2 rounded-full object-cover" />
-          <span className="font-semibold text-blue-700">About Us</span>
-        </a>
-        <a href="/contact" className="flex flex-col items-center bg-white rounded-lg shadow p-4 hover:bg-blue-50 transition">
-          <img src={contactImg} alt="Contact" className="w-12 h-12 mb-2 rounded-full object-cover" />
-          <span className="font-semibold text-blue-700">Contact</span>
-        </a>
+      {/* Seniors Promo (replaces the previous quick-link buttons) */}
+      <section className="w-full max-w-4xl mx-auto mt-10">
+        <div className="flex justify-center">
+          <div
+            role="button"
+            tabIndex={0}
+            onClick={() => setSeniorModalOpen(true)}
+            onKeyDown={(e) => e.key === 'Enter' && setSeniorModalOpen(true)}
+            className="w-full md:w-3/4 bg-gradient-to-r from-indigo-500 to-blue-600 text-white rounded-2xl shadow-2xl p-6 cursor-pointer transform hover:-translate-y-1 transition-all duration-300 flex items-center gap-6"
+          >
+            <img src={computerLiteracyImg} alt="Seniors" className="w-24 h-24 rounded-xl object-cover border-4 border-white shadow-lg" />
+            <div>
+              <h3 className="text-2xl font-extrabold">Senior Learners Programme</h3>
+              <p className="mt-2 text-sm text-blue-100 max-w-xl">We welcome senior students — flexible timetables, tailored computer literacy and community-friendly courses to help older learners stay active, skilled and connected. Click to learn more.</p>
+              <div className="mt-4">
+                <button
+                  onClick={(e) => { e.stopPropagation(); setSeniorModalOpen(true); }}
+                  className="inline-flex items-center gap-2 px-4 py-2 bg-white text-blue-700 rounded-lg font-semibold shadow hover:opacity-95 transition"
+                >
+                  Learn More
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
       </section>
+
+      {/* Seniors Modal */}
+      {seniorModalOpen && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center">
+          <div className="absolute inset-0 bg-black/40" onClick={() => setSeniorModalOpen(false)} />
+          <div className="relative z-10 w-full max-w-2xl bg-white rounded-2xl shadow-2xl overflow-hidden mx-4">
+            <div className="flex flex-col md:flex-row">
+              <div className="md:w-1/2 p-6 bg-gradient-to-br from-blue-600 to-indigo-600 text-white flex items-center justify-center">
+                <div className="text-center">
+                  <img src={computerLiteracyImg} alt="Seniors" className="w-40 h-40 rounded-xl object-cover mb-4 shadow-xl border-4 border-white" />
+                  <h3 className="text-2xl font-bold">Seniors Programme</h3>
+                  <p className="mt-2 text-sm text-blue-100">Encouraging lifelong learning — flexible, friendly, and community-focused.</p>
+                </div>
+              </div>
+              <div className="md:w-1/2 p-6">
+                <h4 className="text-xl font-bold text-blue-800">Join our Seniors Programme</h4>
+                <p className="mt-3 text-gray-700">Rhyme Training Institute offers specially adapted courses for senior learners, including computer literacy, entrepreneurship, and community health topics. We prioritise accessibility, supportive instructors, and practical outcomes to help seniors stay engaged and skilled.</p>
+                <ul className="mt-4 list-disc pl-6 text-gray-700">
+                  <li>Flexible schedules and daytime classes</li>
+                  <li>Friendly learning environment with peer support</li>
+                  <li>Practical computer and life skills</li>
+                </ul>
+                <div className="mt-6 flex gap-3">
+                  <button
+                    onClick={() => { setSeniorModalOpen(false); navigate('/senior'); }}
+                    className="px-4 py-2 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition"
+                  >
+                    Learn More & Apply
+                  </button>
+                  <button
+                    onClick={() => setSeniorModalOpen(false)}
+                    className="px-4 py-2 border border-blue-200 rounded-lg text-blue-700 font-semibold hover:bg-blue-50 transition"
+                  >
+                    Close
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* Community Development & Artisan Trades Section */}
       <section className="w-full max-w-4xl mx-auto mt-16">
