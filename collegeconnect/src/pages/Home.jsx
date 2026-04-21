@@ -1,11 +1,8 @@
 import { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
+
 import homeImage from './../assets/edu.jpg';
 import logoImg from './../assets/rhymelogo.png';
-import applyImg from './../assets/applynow.jpg';
-import coursesImg from './../assets/newcourse.png';
-import aboutImg from './../assets/aboutus0.jpg';
-import contactImg from './../assets/contact.jpg';
 import admissionsImg from './../assets/admission.png';
 import careerImg from './../assets/career.jpg';
 import courseImg from './../assets/newcourses.jpg';
@@ -34,7 +31,6 @@ function useAutoRotatingCarousel(items, itemsPerPage = 1, autoRotateInterval = 6
   }, [items, itemsPerPage, autoRotateInterval]);
 
   const visibleItems = items.slice(currentIndex, currentIndex + itemsPerPage);
-
   return { currentIndex, visibleItems };
 }
 
@@ -247,9 +243,95 @@ function PartnersCarousel() {
   );
 }
 
+function ErrorModal({ open, onClose }) {
+  if (!open) return null;
+
+  return (
+    <div className="fixed inset-0 z-[60] flex items-center justify-center px-4">
+      <div className="absolute inset-0 bg-black/50 backdrop-blur-sm" onClick={onClose} />
+      <div className="relative z-10 w-full max-w-md overflow-hidden rounded-3xl bg-white shadow-2xl">
+        <div className="bg-gradient-to-r from-red-600 to-rose-500 px-6 py-5 text-white">
+          <div className="flex items-center gap-3">
+            <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-white/15 text-2xl">
+              ⚠️
+            </div>
+            <div>
+              <h3 className="text-xl font-bold">Page not reachable</h3>
+              <p className="text-sm text-red-100">We could not open the page right now.</p>
+            </div>
+          </div>
+        </div>
+
+        <div className="px-6 py-6">
+          <p className="text-gray-700 leading-relaxed">
+            The route may be unavailable, or there may be a temporary network issue. Please contact the school directly using the details below.
+          </p>
+
+          <div className="mt-5 rounded-2xl bg-slate-50 p-4 ring-1 ring-slate-200">
+            <p className="mb-2 font-semibold text-slate-800">Manual contact</p>
+            <div className="space-y-1 text-sm text-slate-700">
+              <p>
+                Email:{' '}
+                <a className="font-medium text-blue-700 hover:underline" href="mailto:rhemaprosper1@gmail.com">
+                  rhemaprosper1@gmail.com
+                </a>
+              </p>
+              <p>
+                Phone:{' '}
+                <a className="font-medium text-blue-700 hover:underline" href="tel:0113678958">
+                  0113 678 958
+                </a>{' '}
+                /{' '}
+                <a className="font-medium text-blue-700 hover:underline" href="tel:0781104031">
+                  0781 104 031
+                </a>
+              </p>
+              <p>
+                WhatsApp:{' '}
+                <a
+                  className="font-medium text-green-700 hover:underline"
+                  href="https://wa.me/254704478783"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Chat on WhatsApp
+                </a>
+              </p>
+            </div>
+          </div>
+
+          <div className="mt-6 flex flex-col gap-3 sm:flex-row">
+            <a
+              href="mailto:rhemaprosper1@gmail.com"
+              className="inline-flex flex-1 items-center justify-center rounded-xl bg-blue-600 px-4 py-3 font-semibold text-white shadow-sm transition hover:bg-blue-700"
+            >
+              Send Email
+            </a>
+            <button
+              onClick={onClose}
+              className="inline-flex flex-1 items-center justify-center rounded-xl border border-slate-200 bg-white px-4 py-3 font-semibold text-slate-700 transition hover:bg-slate-50"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export default function Home() {
   const navigate = useNavigate();
   const [seniorModalOpen, setSeniorModalOpen] = useState(false);
+  const [errorModalOpen, setErrorModalOpen] = useState(false);
+
+  const handleSafeNavigation = (path) => {
+    try {
+      navigate(path);
+    } catch (error) {
+      setErrorModalOpen(true);
+    }
+  };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-blue-100 flex flex-col items-center w-full">
@@ -264,7 +346,7 @@ export default function Home() {
             RHYME TRAINING INSTITUTE
           </h1>
           <p className="text-lg md:text-2xl text-blue-700 font-semibold italic mb-4 text-center">
-            “Training for self‑reliance and wellness”
+            “Training for self-reliance and wellness”
           </p>
         </div>
 
@@ -313,10 +395,16 @@ export default function Home() {
       </RevealSection>
 
       <RevealSection className="flex flex-col items-center mt-4" delay={100}>
-        <a href="/apply" className="px-8 py-3 bg-green-600 text-white rounded-lg font-bold text-lg shadow hover:bg-green-700 transition mb-2 animate-pulse">
+        <a
+          href="/apply"
+          className="px-8 py-3 bg-green-600 text-white rounded-lg font-bold text-lg shadow hover:bg-green-700 transition mb-2 animate-pulse"
+        >
           Admission Ongoing: Apply Now
         </a>
-        <a href="/courses" className="px-8 py-3 bg-blue-700 text-white rounded-lg font-bold text-lg shadow hover:bg-blue-800 transition mb-2">
+        <a
+          href="/courses"
+          className="px-8 py-3 bg-blue-700 text-white rounded-lg font-bold text-lg shadow hover:bg-blue-800 transition mb-2"
+        >
           Explore Our Courses
         </a>
       </RevealSection>
@@ -330,7 +418,11 @@ export default function Home() {
             onKeyDown={(e) => e.key === 'Enter' && setSeniorModalOpen(true)}
             className="w-full md:w-3/4 bg-gradient-to-r from-indigo-500 to-blue-600 text-white rounded-2xl shadow-2xl p-6 cursor-pointer transform hover:-translate-y-1 transition-all duration-300 flex items-center gap-6"
           >
-            <img src={computerLiteracyImg} alt="Seniors" className="w-24 h-24 rounded-xl object-cover border-4 border-white shadow-lg" />
+            <img
+              src={computerLiteracyImg}
+              alt="Seniors"
+              className="w-24 h-24 rounded-xl object-cover border-4 border-white shadow-lg"
+            />
             <div>
               <h3 className="text-2xl font-extrabold">Senior Learners Programme</h3>
               <p className="mt-2 text-sm text-blue-100 max-w-xl">
@@ -359,36 +451,43 @@ export default function Home() {
             <div className="flex flex-col md:flex-row">
               <div className="md:w-1/2 p-6 bg-gradient-to-br from-blue-600 to-indigo-600 text-white flex items-center justify-center">
                 <div className="text-center">
-                  <img src={computerLiteracyImg} alt="Seniors" className="w-40 h-40 rounded-xl object-cover mb-4 shadow-xl border-4 border-white" />
+                  <img
+                    src={computerLiteracyImg}
+                    alt="Seniors"
+                    className="w-40 h-40 rounded-xl object-cover mb-4 shadow-xl border-4 border-white"
+                  />
                   <h3 className="text-2xl font-bold">Seniors Programme</h3>
-                  <p className="mt-2 text-sm text-blue-100">Encouraging lifelong learning — flexible, friendly, and community-focused.</p>
+                  <p className="mt-2 text-sm text-blue-100">
+                    Encouraging lifelong learning — flexible, friendly, and community-focused.
+                  </p>
                 </div>
               </div>
+
               <div className="md:w-1/2 p-6">
                 <h4 className="text-xl font-bold text-blue-800">Join our Seniors Programme</h4>
                 <p className="mt-3 text-gray-700">
                   Rhyme Training Institute offers specially adapted courses for senior learners, including computer literacy, entrepreneurship, and community health topics. We prioritise accessibility, supportive instructors, and practical outcomes to help seniors stay engaged and skilled.
                 </p>
-                <ul className="mt-4 list-disc pl-6 text-gray-700">
-                  <li>Flexible schedules and daytime classes</li>
-                  <li>Friendly learning environment with peer support</li>
-                  <li>Practical computer and life skills</li>
-                </ul>
+
                 <div className="mt-6 flex gap-3">
                   <button
                     onClick={() => {
                       setSeniorModalOpen(false);
-                      navigate('/senior');
+                      handleSafeNavigation('/senior');
                     }}
                     className="px-4 py-2 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition"
                   >
                     Learn More & Apply
                   </button>
+
                   <button
-                    onClick={() => setSeniorModalOpen(false)}
+                    onClick={() => {
+                      setSeniorModalOpen(false);
+                      handleSafeNavigation('/apply');
+                    }}
                     className="px-4 py-2 border border-blue-200 rounded-lg text-blue-700 font-semibold hover:bg-blue-50 transition"
                   >
-                    Close
+                    Apply Directly
                   </button>
                 </div>
               </div>
@@ -405,6 +504,7 @@ export default function Home() {
               <p className="text-gray-700 text-lg mb-6 leading-relaxed">
                 We're committed to empowering communities through affordable, industry-recognized vocational training. Our <span className="font-semibold text-green-700">artisan trades program</span> offers hands-on courses in carpentry, welding, plumbing, electrical installation, masonry, and automotive mechanics — all with TVET accreditation and at <span className="font-semibold text-green-700">subsidized rates</span> for inclusion and community uplift.
               </p>
+
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6">
                 <div className="flex items-start gap-3">
                   <span className="text-green-600 text-2xl">✓</span>
@@ -435,11 +535,16 @@ export default function Home() {
                   </div>
                 </div>
               </div>
-              <a href="/courses" className="inline-flex items-center gap-2 px-6 py-3 bg-green-600 text-white rounded-lg font-semibold hover:bg-green-700 transition">
+
+              <a
+                href="/courses"
+                className="inline-flex items-center gap-2 px-6 py-3 bg-green-600 text-white rounded-lg font-semibold hover:bg-green-700 transition"
+              >
                 Explore Artisan Courses
                 <span className="text-lg">→</span>
               </a>
             </div>
+
             <div className="hidden md:flex flex-col items-center justify-center bg-white rounded-xl p-6 shadow-md text-center min-w-fit">
               <div className="text-5xl mb-4">🛠️</div>
               <p className="text-sm font-semibold text-gray-700 mb-2">Training for</p>
@@ -448,6 +553,7 @@ export default function Home() {
               <p className="text-xs text-gray-600">Development</p>
             </div>
           </div>
+
           <div className="mt-6 pt-6 border-t border-green-200">
             <p className="text-sm text-gray-600 italic text-center">
               At Rhyme Training Institute, we believe quality skills training should be accessible to everyone. Our subsidized artisan programs are designed to lift communities and create pathways to prosperity.
@@ -465,11 +571,13 @@ export default function Home() {
               <p className="text-gray-700 mb-6 leading-relaxed">
                 We are offering <span className="font-bold text-blue-700">70% scholarship</span> on practical 3-month artisan courses designed for:
               </p>
+
               <ul className="list-disc pl-6 text-gray-700 mb-6">
                 <li>Form 4 leavers awaiting campus</li>
                 <li>Class 8 leavers</li>
                 <li>Hands-on individuals (watu wa mkono) upgrading to professional artisans</li>
               </ul>
+
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-gray-800 mb-6">
                 {[
                   'Hair Dressing',
@@ -490,14 +598,20 @@ export default function Home() {
                   </div>
                 ))}
               </div>
+
               <p className="text-gray-600 text-sm italic mb-6">
                 These short courses focus on practical life skills, empowering students to become self-reliant and job-ready within just 3 months.
               </p>
-              <a href="/apply" className="inline-flex items-center gap-2 px-6 py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition">
+
+              <a
+                href="/apply"
+                className="inline-flex items-center gap-2 px-6 py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition"
+              >
                 Apply for Scholarship
                 <span>→</span>
               </a>
             </div>
+
             <div className="hidden md:flex flex-col justify-center items-center bg-white rounded-xl p-6 shadow text-center min-w-fit">
               <div className="text-4xl mb-2">🎓</div>
               <p className="text-sm font-semibold text-gray-600">Duration</p>
@@ -526,18 +640,21 @@ export default function Home() {
                 <li>• English</li>
               </ul>
             </div>
+
             <div className="bg-white rounded-xl p-5 shadow">
               <h3 className="font-bold text-purple-700 mb-2">🎯 Target Students</h3>
               <p className="text-gray-700 text-sm">
                 KCSE leavers who narrowly missed university or college entry requirements and want a fast-track improvement.
               </p>
             </div>
+
             <div className="bg-white rounded-xl p-5 shadow">
               <h3 className="font-bold text-purple-700 mb-2">⏳ Duration</h3>
               <p className="text-gray-700 text-sm">
                 Short-term intensive program (approx. 3 months / one term) with flexible and weekend classes.
               </p>
             </div>
+
             <div className="bg-white rounded-xl p-5 shadow">
               <h3 className="font-bold text-purple-700 mb-2">🚀 Purpose</h3>
               <p className="text-gray-700 text-sm">
@@ -547,7 +664,10 @@ export default function Home() {
           </div>
 
           <div className="text-center">
-            <a href="/apply" className="px-8 py-3 bg-purple-600 text-white rounded-lg font-semibold hover:bg-purple-700 transition">
+            <a
+              href="/apply"
+              className="px-8 py-3 bg-purple-600 text-white rounded-lg font-semibold hover:bg-purple-700 transition"
+            >
               Join Bridging Programme
             </a>
           </div>
@@ -567,11 +687,13 @@ export default function Home() {
             <div className="font-semibold text-blue-700 mb-1">Jane M.</div>
             <p className="text-gray-700 text-center text-sm">“Rhyme gave me the skills and confidence to start my own business. The instructors are amazing!”</p>
           </div>
+
           <div className="bg-white rounded-lg shadow p-6 flex flex-col items-center">
             <img src={samuelImg} alt="Student 2" className="w-16 h-16 rounded-full mb-3 border-2 border-blue-200" />
             <div className="font-semibold text-blue-700 mb-1">Samuel K.</div>
             <p className="text-gray-700 text-center text-sm">“The campus environment is so supportive. I made lifelong friends and learned so much.”</p>
           </div>
+
           <div className="bg-white rounded-lg shadow p-6 flex flex-col items-center">
             <img src={aishaJpg} alt="Student 3" className="w-16 h-16 rounded-full mb-3 border-2 border-blue-200" />
             <div className="font-semibold text-blue-700 mb-1">Aisha L.</div>
@@ -590,12 +712,13 @@ export default function Home() {
           <div className="font-bold text-blue-800 mb-1">Contact Us</div>
           <div className="text-gray-700">Head Office (Meru): Rhema HSE, Runogone (opposite EAPC Church)</div>
           <div className="text-gray-700">
-            Phone: <a href="tel:0113678958" className="text-blue-700 hover:underline">0113 678 958</a> /{' '}
-            <a href="tel:0781104031" className="text-blue-700 hover:underline">0781 104 031</a>
+            Phone: <a href="tel:0113678958" className="text-blue-700 hover:underline">0113 678 958</a> /{' '}
+            <a href="tel:0781104031" className="text-blue-700 hover:underline">0781 104 031</a>
           </div>
           <div className="text-gray-700">
             Email: <a href="mailto:rhemaprosper1@gmail.com" className="text-blue-700 hover:underline">rhemaprosper1@gmail.com</a>
           </div>
+
           <a
             href="https://wa.me/254704478783"
             target="_blank"
@@ -607,7 +730,13 @@ export default function Home() {
             </svg>
             <span className="text-base font-medium">Message us on WhatsApp</span>
           </a>
-          <form className="w-full max-w-md mt-6 flex flex-col gap-3" action="mailto:rhemaprosper1@gmail.com" method="POST" encType="text/plain">
+
+          <form
+            className="w-full max-w-md mt-6 flex flex-col gap-3"
+            action="mailto:rhemaprosper1@gmail.com"
+            method="POST"
+            encType="text/plain"
+          >
             <label htmlFor="concern" className="text-blue-800 font-semibold">Your Concern</label>
             <textarea
               id="concern"
@@ -622,6 +751,7 @@ export default function Home() {
             </button>
           </form>
         </div>
+
         <div className="flex flex-wrap gap-4 justify-center mt-8">
           <span className="bg-blue-100 text-blue-700 px-4 py-2 rounded-full font-semibold">Ongata Rongai</span>
           <span className="bg-blue-100 text-blue-700 px-4 py-2 rounded-full font-semibold">Karen</span>
@@ -659,6 +789,7 @@ export default function Home() {
               </a>
             </div>
           </div>
+
           <div>
             <div className="font-bold mb-2">Quick Links</div>
             <ul className="space-y-1">
@@ -669,18 +800,22 @@ export default function Home() {
               <li><a href="/admin" className="hover:underline">Admin Login</a></li>
             </ul>
           </div>
+
           <div>
             <div className="font-bold mb-2">Contact</div>
             <ul className="space-y-1">
               <li>Head Office (Meru): Rhema HSE, Runogone</li>
-              <li>Phone: <a href="tel:0113678958" className="hover:underline">0113 678 958</a></li>
-              <li>Phone: <a href="tel:0781104031" className="hover:underline">0781 104 031</a></li>
+              <li>Phone: <a href="tel:0113678958" className="hover:underline">0113 678 958</a></li>
+              <li>Phone: <a href="tel:0781104031" className="hover:underline">0781 104 031</a></li>
               <li>Email: <a href="mailto:rhemaprosper1@gmail.com" className="hover:underline">rhemaprosper1@gmail.com</a></li>
             </ul>
           </div>
         </div>
+
         <div className="text-sm mt-4">&copy; {new Date().getFullYear()} RHYME TRAINING INSTITUTE. All rights reserved.</div>
       </footer>
+
+      <ErrorModal open={errorModalOpen} onClose={() => setErrorModalOpen(false)} />
     </div>
   );
 }
